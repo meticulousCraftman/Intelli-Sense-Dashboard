@@ -16,6 +16,10 @@ car_width = 73
 
 # Loading images
 carImg = pygame.image.load("racecar.png")
+background = pygame.image.load("background.jpg")
+
+def bg():
+	game_display.blit(background, (0,0))
 
 def car(x,y):
 	game_display.blit(carImg, (x,y))
@@ -65,6 +69,7 @@ def game_loop():
 		x += x_change
 
 		game_display.fill(white)
+		bg()
 		car(x,y)
 
 		if x > (DISPLAY_WIDTH - car_width) or x < 0:
