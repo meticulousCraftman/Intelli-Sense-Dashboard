@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import time
 
 DISPLAY_WIDTH = 800
 DISPLAY_HEIGHT = 600
@@ -28,7 +29,13 @@ def message_display(text):
 	largeText = pygame.font.Font("freesansbold.ttf", 115)
 	TextSurf, TextRect = text_objects(text, largeText)
 	TextRect.center = ((DISPLAY_WIDTH/2), (DISPLAY_HEIGHT/2))
+	game_display.blit(TextSurf, TextRect)
+	pygame.display.update()
+	time.sleep(2)
+	game_loop()
 
+def crash():
+	message_display("You Crashed")
 
 # The main game loop
 def game_loop():
@@ -43,7 +50,8 @@ def game_loop():
 		for event in pygame.event.get():
 			print(event)
 			if event.type == QUIT:
-				gameExit = True
+				pygame.quit()
+				quit()
 
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_LEFT:
@@ -59,7 +67,8 @@ def game_loop():
 		game_display.fill(white)
 		car(x,y)
 
-		if x > DISPLAY_WIDTH - 
+		if x > (DISPLAY_WIDTH - car_width) or x < 0:
+			crash()
 
 		pygame.display.update()
 		clock.tick(60)
@@ -67,5 +76,3 @@ def game_loop():
 
 
 game_loop()
-pygame.quit()
-quit()
