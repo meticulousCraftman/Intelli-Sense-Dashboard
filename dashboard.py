@@ -15,22 +15,24 @@ black = (0,0,0)
 car_width = 73
 
 # Loading images
-carImg = pygame.image.load("racecar.png")
+ringImg = pygame.image.load("Ring.tif")
+ringImg = pygame.transform.scale2x(ringImg)
+
 background = pygame.image.load("background.jpg")
 
 def bg():
 	game_display.blit(background, (0,0))
 
-def car(x,y):
-	game_display.blit(carImg, (x,y))
+def ring(x,y):
+	game_display.blit(ringImg, (x,y))
 
 
 def text_objects(text, font):
-	textSurface = font.render(text, True, black)
+	textSurface = font.render(text, True, white)
 	return textSurface, textSurface.get_rect()
 
 def message_display(text):
-	largeText = pygame.font.Font("freesansbold.ttf", 115)
+	largeText = pygame.font.Font("./fonts/OpenSans-Light.ttf", 115)
 	TextSurf, TextRect = text_objects(text, largeText)
 	TextRect.center = ((DISPLAY_WIDTH/2), (DISPLAY_HEIGHT/2))
 	game_display.blit(TextSurf, TextRect)
@@ -43,8 +45,8 @@ def crash():
 
 # The main game loop
 def game_loop():
-	x = (DISPLAY_WIDTH * 0.45)
-	y = (DISPLAY_HEIGHT * 0.8)
+	x = (DISPLAY_WIDTH * 0.3)
+	y = (DISPLAY_HEIGHT * 0.2)
 
 	x_change = 0
 
@@ -70,7 +72,7 @@ def game_loop():
 
 		game_display.fill(white)
 		bg()
-		car(x,y)
+		ring(x,y)
 
 		if x > (DISPLAY_WIDTH - car_width) or x < 0:
 			crash()
