@@ -10,23 +10,25 @@ DISPLAY_WIDTH = 800
 DISPLAY_HEIGHT = 600
 WHITE = (255,255,255)
 TITLEBAR_STRING = "Intelli Sense Dashboard"
-
+COLORS = {
+	"WHITE":(255,255,255)
+}
 
 # Application related settings
 pygame.init()
 clock = pygame.time.Clock()
 game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
 pygame.display.set_caption(TITLEBAR_STRING)
-x = (DISPLAY_WIDTH * 0.3)
-y = (DISPLAY_HEIGHT * 0.2)
+x = (DISPLAY_WIDTH * 0.5)
+y = (DISPLAY_HEIGHT * 0.5)
 
 
 
 background = pygame.image.load("./images/background.jpg")
 
 
-speedometerComp = components.speedometer.Speedometer((x,y))
-emptyRingComp = components.speedometer.EmptyRing((x,y))
+speedometerComp = components.speedometer.Speedometer((x,y-100))
+emptyRingComp = components.speedometer.EmptyRing((x,y-100))
 speedometerComp.set_speed(26)
 
 
@@ -36,7 +38,8 @@ all_sprites_list = pygame.sprite.Group()
 
 # Adding speedometer to the group of sprites
 all_sprites_list.add(emptyRingComp)
-all_sprites_list.add(speedometerComp)	
+all_sprites_list.add(speedometerComp)
+
 
 
 # For displaying the background
@@ -61,6 +64,8 @@ def game_loop():
 		bg()
 		all_sprites_list.update()
 		all_sprites_list.draw(game_display)
+		components.text.message_display(game_display,"22.34",(x,y-25-100),50)
+		components.text.message_display(game_display,"KMPH",(x,y+25-100),35)
 
 		pygame.display.update()
 		clock.tick(60)
