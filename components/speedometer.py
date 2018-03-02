@@ -10,10 +10,7 @@ class EmptyRing(pygame.sprite.Sprite):
 		self.image = pygame.transform.scale2x(self.image)
 		self.rect = self.image.get_rect()
 		if position is not None:
-			self.rect.x = position[0]
-			self.rect.y = position[1]
-
-
+			self.rect.center = (position[0], position[1])
 
 
 
@@ -29,8 +26,7 @@ class Speedometer(pygame.sprite.Sprite):
 		self.image = pygame.transform.scale2x(self.image)
 		self.rect = self.image.get_rect()
 		if position is not None:
-			self.rect.x = position[0]
-			self.rect.y = position[1]
+			self.rect.center = (position[0], position[1])
 
 
 	def set_speed(self, speed):
