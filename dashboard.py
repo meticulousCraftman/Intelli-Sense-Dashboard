@@ -34,18 +34,21 @@ speedometerComp.scale(1.75)
 speedometerComp.set_speed(12)
 emptyRingSpeedometerComp = components.rings.EmptyRing((x-300,y-100))
 emptyRingSpeedometerComp.scale(1.75)
+speedText = components.text.Text("22.34",50, COLORS["WHITE"],(x-250,y-70))
+speedUnitText = components.text.Text("kmph",50, COLORS["WHITE"],(x-250,y-30))
+
 
 
 # Components of Cooling Unit
-emptyRingcoolingComp = components.rings.EmptyRing((x+260,y-160))
-coolingUnitComp = components.rings.ActiveRings((x+260,y-160))
-rpmIncButton = components.buttons.IncreaseButton((715,160))
-rpmDecButton = components.buttons.DecreaseButton((615,160))
+emptyRingcoolingComp = components.rings.EmptyRing((x+260,y-130))
+coolingUnitComp = components.rings.ActiveRings((x+260,y-130))
+rpmIncButton = components.buttons.IncreaseButton((715,190))
+rpmDecButton = components.buttons.DecreaseButton((615,190))
 
 
 # Time Left Ring
-emptyRingTimeComp = components.rings.EmptyRing((x+260,y+30))
-timeComp = components.rings.ActiveRings((x+260,y+30))
+emptyRingTimeComp = components.rings.EmptyRing((x+50,y-130))
+timeComp = components.rings.ActiveRings((x+50,y-130))
 
 
 # Exit Button
@@ -68,6 +71,8 @@ all_sprites_list.add(rpmIncButton)
 all_sprites_list.add(rpmDecButton)
 all_sprites_list.add(emptyRingTimeComp)
 all_sprites_list.add(timeComp)
+all_sprites_list.add(speedText)
+all_sprites_list.add(speedUnitText)
 
 
 # For displaying the background
@@ -103,11 +108,11 @@ def game_loop():
 
 			# For Speedometer
 			all_sprites_list.draw(game_display)
-			components.text.message_display(game_display,"22.34",(x-250,y-70),50)
-			components.text.message_display(game_display,"kmph",(x-250,y-30),35)
+			# components.text.message_display(game_display,"22.34",(x-250,y-70),50)
+			# components.text.message_display(game_display,"kmph",(x-250,y-30),35)
 
 			# Odometer
-			components.text.message_display(game_display,"3.68 km",(x-250,y+90),30)
+			# components.text.message_display(game_display,"3.68 km",(x-250,y+90),30)
 
 			# Exit Button
 			components.buttons.GenericButton(exitButton, action)
