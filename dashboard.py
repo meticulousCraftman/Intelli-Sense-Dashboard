@@ -37,12 +37,15 @@ emptyRingSpeedometerComp.scale(1.75)
 
 
 # Components of Cooling Unit
-emptyRingcoolingComp = components.rings.EmptyRing((x+280,y-120))
-coolingUnitComp = components.rings.ActiveRings((x+280,y-120))
-rpmIncButton = components.buttons.IncreaseButton((735,200))
-rpmDecButton = components.buttons.DecreaseButton((635,200))
+emptyRingcoolingComp = components.rings.EmptyRing((x+260,y-160))
+coolingUnitComp = components.rings.ActiveRings((x+260,y-160))
+rpmIncButton = components.buttons.IncreaseButton((715,160))
+rpmDecButton = components.buttons.DecreaseButton((615,160))
 
 
+# Time Left Ring
+emptyRingTimeComp = components.rings.EmptyRing((x+260,y+30))
+timeComp = components.rings.ActiveRings((x+260,y+30))
 
 
 # Exit Button
@@ -63,6 +66,8 @@ all_sprites_list.add(coolingUnitComp)
 all_sprites_list.add(exitButton)
 all_sprites_list.add(rpmIncButton)
 all_sprites_list.add(rpmDecButton)
+all_sprites_list.add(emptyRingTimeComp)
+all_sprites_list.add(timeComp)
 
 
 # For displaying the background
