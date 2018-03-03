@@ -1,7 +1,7 @@
 import pygame
 
 COLORS = {
-	"WHITE":(255,255,255)
+    "WHITE":(255,255,255)
 }
 
 
@@ -15,3 +15,17 @@ def message_display(display,text,position,size=40):
     TextSurf, TextRect = text_objects(text, largeText)
     TextRect.center = (position[0], position[1])
     display.blit(TextSurf, TextRect)
+
+
+class Text(pygame.sprite.Sprite):
+
+    def __init__(self, text, size, color, position=(0, 0)):
+
+        super().__init__()
+
+        OpenSans = pygame.font.Font("./fonts/OpenSans-Light.ttf", size)
+        self.textSurf = OpenSans.render(text, True, color)
+        self.image = self.textSurf
+        self.rect = self.image.get_rect()
+
+        self.rect.center = (position[0], position[1])
