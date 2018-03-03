@@ -27,19 +27,28 @@ y = (DISPLAY_HEIGHT * 0.5)
 
 background = pygame.image.load("./images/background.jpg")
 
+
+# Componenets of speedometer
 speedometerComp = components.rings.ActiveRings((x-300,y-100))
 speedometerComp.scale(1.75)
-
+speedometerComp.set_speed(12)
 emptyRingSpeedometerComp = components.rings.EmptyRing((x-300,y-100))
 emptyRingSpeedometerComp.scale(1.75)
 
-emptyRingcoolingComp = components.rings.EmptyRing((x,y))
-coolingUnitComp = components.rings.ActiveRings((x,y))
+
+# Components of Cooling Unit
+emptyRingcoolingComp = components.rings.EmptyRing((x+280,y-120))
+coolingUnitComp = components.rings.ActiveRings((x+280,y-120))
+rpmIncButton = components.buttons.IncreaseButton((735,200))
+rpmDecButton = components.buttons.DecreaseButton((635,200))
 
 
+
+
+# Exit Button
 exitButton = components.buttons.DecreaseButton((770,20))
 exitButton.scale(1)
-speedometerComp.set_speed(12)
+
 
 
 # This will ke a list of all the sprites present on the screen
@@ -52,6 +61,8 @@ all_sprites_list.add(speedometerComp)
 all_sprites_list.add(emptyRingcoolingComp)
 all_sprites_list.add(coolingUnitComp)
 all_sprites_list.add(exitButton)
+all_sprites_list.add(rpmIncButton)
+all_sprites_list.add(rpmDecButton)
 
 
 # For displaying the background
