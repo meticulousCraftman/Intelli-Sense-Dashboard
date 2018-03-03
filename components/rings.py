@@ -20,7 +20,7 @@ class EmptyRing(pygame.sprite.Sprite):
 
 
 
-class Speedometer(pygame.sprite.Sprite):
+class ActiveRings(pygame.sprite.Sprite):
 	"""
 	This class represents the speedomter present on the screen
 	"""
@@ -28,6 +28,7 @@ class Speedometer(pygame.sprite.Sprite):
 	def __init__(self,position=None):
 		super().__init__()
 		self.scale_times = 1
+		self.speed = 1
 		self.image = pygame.image.load("./images/1.tif")
 		self.rect = self.image.get_rect()
 		if position is not None:
