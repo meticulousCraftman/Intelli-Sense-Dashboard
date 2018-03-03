@@ -17,7 +17,7 @@ COLORS = {
 # Application related settings
 pygame.init()
 clock = pygame.time.Clock()
-game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
+game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT), pygame.FULLSCREEN)
 pygame.display.set_caption(TITLEBAR_STRING)
 x = (DISPLAY_WIDTH * 0.5)
 y = (DISPLAY_HEIGHT * 0.5)
