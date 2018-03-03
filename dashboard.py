@@ -2,8 +2,8 @@ import pygame
 from pygame.locals import *
 import time
 
+import primitive
 import components
-
 
 # Global settings
 DISPLAY_WIDTH = 800
@@ -28,31 +28,14 @@ y = (DISPLAY_HEIGHT * 0.5)
 background = pygame.image.load("./images/background.jpg")
 
 
-# Componenets of speedometer
-speedometerComp = components.rings.ActiveRings((x-300,y-100))
-speedometerComp.scale(1.75)
-speedometerComp.set_speed(12)
-emptyRingSpeedometerComp = components.rings.EmptyRing((x-300,y-100))
-emptyRingSpeedometerComp.scale(1.75)
-speedText = components.text.Text("22.34",50, COLORS["WHITE"],(x-250,y-70))
-speedUnitText = components.text.Text("kmph",50, COLORS["WHITE"],(x-250,y-30))
-
-
-
-# Components of Cooling Unit
-emptyRingcoolingComp = components.rings.EmptyRing((x+260,y-130))
-coolingUnitComp = components.rings.ActiveRings((x+260,y-130))
-rpmIncButton = components.buttons.IncreaseButton((715,190))
-rpmDecButton = components.buttons.DecreaseButton((615,190))
-
 
 # Time Left Ring
-emptyRingTimeComp = components.rings.EmptyRing((x+50,y-130))
-timeComp = components.rings.ActiveRings((x+50,y-130))
+emptyRingTimeComp = primitive.rings.EmptyRing((x+50,y-130))
+timeComp = primitive.rings.ActiveRings((x+50,y-130))
 
 
 # Exit Button
-exitButton = components.buttons.DecreaseButton((770,20))
+exitButton = primitive.buttons.DecreaseButton((770,20))
 exitButton.scale(1)
 
 
@@ -61,18 +44,11 @@ exitButton.scale(1)
 all_sprites_list = pygame.sprite.Group()
 
 
-# Adding speedometer to the group of sprites
-all_sprites_list.add(emptyRingSpeedometerComp)
-all_sprites_list.add(speedometerComp)
-all_sprites_list.add(emptyRingcoolingComp)
-all_sprites_list.add(coolingUnitComp)
+
 all_sprites_list.add(exitButton)
-all_sprites_list.add(rpmIncButton)
-all_sprites_list.add(rpmDecButton)
 all_sprites_list.add(emptyRingTimeComp)
 all_sprites_list.add(timeComp)
-all_sprites_list.add(speedText)
-all_sprites_list.add(speedUnitText)
+
 
 
 # For displaying the background
@@ -81,9 +57,10 @@ def bg():
 
 
 def action():
-	components.text.message_display(game_display,"Exit",(x,y-25-100),100)
+	primitive.text.message_display(game_display,"Exit",(x,y-25-100),100)
 	gameExit = True
 	pygame.quit()
+
 
 
 # The main game loop
@@ -103,19 +80,22 @@ def game_loop():
 			game_display.fill(WHITE)
 			bg()
 			all_sprites_list.update()
+			
+			# Updating all the components on the screen
+			components.speedometer.Speedometer.update()
+			components.coolingUnit.CoolingUnit.update()
+
+			# Drawing all the components on the screen
+			components.speedometer.Speedometer.draw(game_display)
+			components.coolingUnit.CoolingUnit.draw(game_display)
 
 			mouse = pygame.mouse.get_pos()
 
 			# For Speedometer
 			all_sprites_list.draw(game_display)
-			# components.text.message_display(game_display,"22.34",(x-250,y-70),50)
-			# components.text.message_display(game_display,"kmph",(x-250,y-30),35)
-
-			# Odometer
-			# components.text.message_display(game_display,"3.68 km",(x-250,y+90),30)
 
 			# Exit Button
-			components.buttons.GenericButton(exitButton, action)
+			primitive.buttons.GenericButton(exitButton, action)
 
 
 			pygame.display.update()
