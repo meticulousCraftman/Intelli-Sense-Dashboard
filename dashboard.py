@@ -7,7 +7,7 @@ import components
 
 # Global settings
 DISPLAY_WIDTH = 800
-DISPLAY_HEIGHT = 600
+DISPLAY_HEIGHT = 480
 WHITE = (255,255,255)
 TITLEBAR_STRING = "Intelli Sense Dashboard"
 COLORS = {
@@ -26,9 +26,12 @@ y = (DISPLAY_HEIGHT * 0.5)
 
 background = pygame.image.load("./images/background.jpg")
 
+speedometerComp = components.speedometer.Speedometer((x,y))
+speedometerComp.scale(1)
 
-speedometerComp = components.speedometer.Speedometer((x,y-100))
-emptyRingComp = components.speedometer.EmptyRing((x,y-100))
+emptyRingComp = components.speedometer.EmptyRing((x,y))
+emptyRingComp.scale(1)
+
 exitButton = components.buttons.DecreaseButton((770,20))
 exitButton.scale(0.75)
 speedometerComp.set_speed(26)
