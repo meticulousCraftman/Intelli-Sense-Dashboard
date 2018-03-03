@@ -29,27 +29,6 @@ background = pygame.image.load("./images/background.jpg")
 
 
 
-# Time Left Ring
-emptyRingTimeComp = primitive.rings.EmptyRing((x+50,y-130))
-timeComp = primitive.rings.ActiveRings((x+50,y-130))
-
-
-# Exit Button
-exitButton = primitive.buttons.DecreaseButton((770,20))
-exitButton.scale(1)
-
-
-
-# This will ke a list of all the sprites present on the screen
-all_sprites_list = pygame.sprite.Group()
-
-
-
-all_sprites_list.add(exitButton)
-all_sprites_list.add(emptyRingTimeComp)
-all_sprites_list.add(timeComp)
-
-
 
 # For displaying the background
 def bg():
@@ -79,23 +58,24 @@ def game_loop():
 			# Componenets that needs to present on the screen
 			game_display.fill(WHITE)
 			bg()
-			all_sprites_list.update()
 			
 			# Updating all the components on the screen
 			components.speedometer.Speedometer.update()
 			components.coolingUnit.CoolingUnit.update()
+			components.timer.Timer.update()
+			components.exitButton.ExitButton.update()
 
-			# Drawing all the components on the screen
+			# Drawing all the components on the screena
 			components.speedometer.Speedometer.draw(game_display)
 			components.coolingUnit.CoolingUnit.draw(game_display)
+			components.coolingUnit.CoolingUnit.draw(game_display)
+			components.exitButton.ExitButton.draw(game_display)
 
 			mouse = pygame.mouse.get_pos()
-
-			# For Speedometer
-			all_sprites_list.draw(game_display)
+			
 
 			# Exit Button
-			primitive.buttons.GenericButton(exitButton, action)
+			# primitive.buttons.GenericButton(exitButton, action)
 
 
 			pygame.display.update()
