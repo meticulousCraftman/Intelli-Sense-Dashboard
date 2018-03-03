@@ -17,7 +17,8 @@ COLORS = {
 # Application related settings
 pygame.init()
 clock = pygame.time.Clock()
-game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT), pygame.FULLSCREEN)
+# game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT), pygame.FULLSCREEN)
+game_display = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT)) # For fast development purpose
 pygame.display.set_caption(TITLEBAR_STRING)
 x = (DISPLAY_WIDTH * 0.5)
 y = (DISPLAY_HEIGHT * 0.5)
@@ -26,15 +27,19 @@ y = (DISPLAY_HEIGHT * 0.5)
 
 background = pygame.image.load("./images/background.jpg")
 
-speedometerComp = components.speedometer.Speedometer((x,y))
-speedometerComp.scale(1)
+speedometerComp = components.rings.ActiveRings((x-300,y-100))
+speedometerComp.scale(1.75)
 
-emptyRingComp = components.speedometer.EmptyRing((x,y))
-emptyRingComp.scale(1)
+emptyRingSpeedometerComp = components.rings.EmptyRing((x-300,y-100))
+emptyRingSpeedometerComp.scale(1.75)
+
+emptyRingcoolingComp = components.rings.EmptyRing((x,y))
+coolingUnitComp = components.rings.ActiveRings((x,y))
+
 
 exitButton = components.buttons.DecreaseButton((770,20))
-exitButton.scale(0.75)
-speedometerComp.set_speed(26)
+exitButton.scale(1)
+speedometerComp.set_speed(12)
 
 
 # This will ke a list of all the sprites present on the screen
@@ -42,8 +47,10 @@ all_sprites_list = pygame.sprite.Group()
 
 
 # Adding speedometer to the group of sprites
-all_sprites_list.add(emptyRingComp)
+all_sprites_list.add(emptyRingSpeedometerComp)
 all_sprites_list.add(speedometerComp)
+all_sprites_list.add(emptyRingcoolingComp)
+all_sprites_list.add(coolingUnitComp)
 all_sprites_list.add(exitButton)
 
 
@@ -80,11 +87,11 @@ def game_loop():
 
 			# For Speedometer
 			all_sprites_list.draw(game_display)
-			components.text.message_display(game_display,"22.34",(x,y-25-100),50)
-			components.text.message_display(game_display,"KMPH",(x,y+25-100),35)
+			components.text.message_display(game_display,"22.34",(x-250,y-70),50)
+			components.text.message_display(game_display,"kmph",(x-250,y-30),35)
 
 			# Odometer
-			components.text.message_display(game_display,"24 KM",(x,y+60),35)
+			components.text.message_display(game_display,"3.68 km",(x-250,y+90),30)
 
 			# Exit Button
 			components.buttons.GenericButton(exitButton, action)
