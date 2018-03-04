@@ -66,6 +66,7 @@ def game_loop():
 			components.exitButton.ExitButton.update()
 			components.otherStats.Stats.update()
 			components.lapsTracker.LapTracker.update()
+			components.footer.Footer.update()
 
 			# Drawing all the components on the screena
 			components.speedometer.Speedometer.draw(game_display)
@@ -74,6 +75,7 @@ def game_loop():
 			components.exitButton.ExitButton.draw(game_display)
 			components.otherStats.Stats.draw(game_display)
 			components.lapsTracker.LapTracker.draw(game_display)
+			components.footer.Footer.draw(game_display)
 
 			mouse = pygame.mouse.get_pos()
 			
