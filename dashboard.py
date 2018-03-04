@@ -60,7 +60,7 @@ def game_loop():
 			bg()
 			
 			# Updating all the components on the screen
-			components.speedometer.Speedometer.update()
+			components.speedometer.Speedometer.update(0)
 			components.coolingUnit.CoolingUnit.update()
 			components.timer.Timer.update()
 			components.odometer.Odometer.update()
