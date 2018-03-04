@@ -48,6 +48,8 @@ class ActiveRings(pygame.sprite.Sprite):
 			image_url = "./images/%s.tif" % str(self.active_count)
 			self.image = pygame.image.load(image_url)
 			self.scale(self.scale_times)
+		if self.active_count==0:
+			self.image = pygame.Surface((1,1))
 	
 
 	def scale(self,times=1):
