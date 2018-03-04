@@ -25,30 +25,30 @@ class ActiveRings(pygame.sprite.Sprite):
 	This class represents the speedomter present on the screen
 	"""
 
-	def __init__(self,position=None):
+	def __init__(self,minimum=0,maximum=1,position=(0,0)):
 		super().__init__()
 		self.scale_times = 1
 		self.speed = 1
+		self.min = minimum
+		self.max = maximum
 		self.image = pygame.image.load("./images/1.tif")
 		self.rect = self.image.get_rect()
-		if position is not None:
-			self.rect.center = (position[0], position[1])
+		self.rect.center = position
+		self.setValue()
 
 
-	def set_speed(self, speed):
-		self.speed = speed
+	def setValue(self, value=1):
+		self.value = value
+		ratio = self.value/(self.max - self.min)
+		print("The ratio is : "+str(ratio))
+		self.active_count = math.floor(36*ratio)
 
 
 	def update(self):
-		"""
-		This reads the value from the sensor and updates
-		the board accordingly.
-		"""
-		self.active_count = self.speed
-		image_url = "./images/%s.tif" % str(self.speed)
-		self.image = pygame.image.load(image_url)
-		self.scale(self.scale_times)
-		# self.image = pygame.transform.scale2x(self.image)
+		if self.active_count!=0:
+			image_url = "./images/%s.tif" % str(self.active_count)
+			self.image = pygame.image.load(image_url)
+			self.scale(self.scale_times)
 	
 
 	def scale(self,times=1):
