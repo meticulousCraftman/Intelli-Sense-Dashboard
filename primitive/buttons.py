@@ -17,6 +17,18 @@ class IncreaseButton(pygame.sprite.Sprite):
 		newh = math.floor(h*times)
 		self.image = pygame.transform.scale(self.image, (neww, newh))
 
+	def clicked(self,mouse,click,action=None):
+		self.image = pygame.image.load("./images/increase.png")
+		self.action = action
+		mouse = pygame.mouse.get_pos()
+		click = pygame.mouse.get_pressed()
+
+		w,h = self.image.get_size()
+		if self.rect.x + w > mouse[0] > self.rect.x and self.rect.y + h > mouse[1] > self.rect.y:
+			if click[0] == 1 and action != None:
+				self.image = pygame.image.load("./images/increase-tap.png")
+				self.action()
+
 
 class DecreaseButton(pygame.sprite.Sprite):
 	
@@ -33,6 +45,18 @@ class DecreaseButton(pygame.sprite.Sprite):
 		neww = math.floor(w*times)
 		newh = math.floor(h*times)
 		self.image = pygame.transform.scale(self.image, (neww, newh))
+
+	def clicked(self,mouse,click,action=None):
+		self.image = pygame.image.load("./images/decrease.png")
+		self.action = action
+		mouse = pygame.mouse.get_pos()
+		click = pygame.mouse.get_pressed()
+
+		w,h = self.image.get_size()
+		if self.rect.x + w > mouse[0] > self.rect.x and self.rect.y + h > mouse[1] > self.rect.y:
+			if click[0] == 1 and action != None:
+				self.image = pygame.image.load("./images/decrease-tap.png")
+				self.action()
 
 
 def GenericButton(buttonSurface, action=None):
