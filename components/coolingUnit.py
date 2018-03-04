@@ -14,7 +14,7 @@ coolingUnitComp = primitive.rings.ActiveRings(BASE_POSITION)
 rpmIncButton = primitive.buttons.IncreaseButton((BASE_POSITION[0]+65, BASE_POSITION[1]+80))
 rpmDecButton = primitive.buttons.DecreaseButton((BASE_POSITION[0]-65,BASE_POSITION[1]+80))
 componentName = primitive.text.Text("Cooling Unit",25, COLORS["WHITE"],(BASE_POSITION[0],BASE_POSITION[1]-90))
-coolingPercentage = primitive.text.Text("10 %",30, COLORS["WHITE"],(BASE_POSITION[0],BASE_POSITION[1]))
+coolingPercentage = primitive.text.Text("10 %",30, COLORS["WHITE"],BASE_POSITION)
 
 CoolingUnit = pygame.sprite.Group()
 CoolingUnit.add(emptyRingcoolingComp)
