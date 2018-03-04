@@ -40,7 +40,6 @@ class ActiveRings(pygame.sprite.Sprite):
 	def setValue(self, value=1):
 		self.value = value
 		ratio = self.value/(self.max - self.min)
-		print("The ratio is : "+str(ratio))
 		self.active_count = math.floor(36*ratio)
 
 
