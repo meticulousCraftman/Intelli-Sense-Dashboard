@@ -10,7 +10,7 @@ COLORS = {
 	"WHITE":(255,255,255)
 }
 
-exitButton = primitive.buttons.DecreaseButton((770,20))
+exitButton = primitive.buttons.DecreaseButton((20,20))
 exitButton.scale(1)
 
 ExitButton = pygame.sprite.Group()
