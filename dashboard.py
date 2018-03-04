@@ -68,7 +68,7 @@ def game_loop():
 			# Drawing all the components on the screena
 			components.speedometer.Speedometer.draw(game_display)
 			components.coolingUnit.CoolingUnit.draw(game_display)
-			components.coolingUnit.CoolingUnit.draw(game_display)
+			components.timer.Timer.draw(game_display)
 			components.exitButton.ExitButton.draw(game_display)
 
 			mouse = pygame.mouse.get_pos()
