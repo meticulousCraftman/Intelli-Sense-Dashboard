@@ -6,5 +6,6 @@ try:
 	from . import otherStats
 	from . import lapsTracker
 	from . import footer
+	from . import odometer
 except ImportError:
 	from .components import *
