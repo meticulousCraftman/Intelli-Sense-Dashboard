@@ -23,9 +23,23 @@ class Text(pygame.sprite.Sprite):
 
         super().__init__()
 
-        OpenSans = pygame.font.Font("./fonts/OpenSans-Light.ttf", size)
-        self.textSurf = OpenSans.render(text, True, color)
+        self.text = text
+        self.size = size
+        self.color = color
+        self.position = position
+
+        self.OpenSans = pygame.font.Font("./fonts/OpenSans-Light.ttf", size)
+        self.textSurf = self.OpenSans.render(text, True, color)
         self.image = self.textSurf
         self.rect = self.image.get_rect()
 
-        self.rect.center = (position[0], position[1])
+        self.rect.center = self.position
+
+
+    def changeText(self,text=""):
+        self.text = text
+        self.textSurf = self.OpenSans.render(self.text, True, self.color)
+        self.image = self.textSurf
+        self.rect = self.image.get_rect()
+
+        self.rect.center = self.position
