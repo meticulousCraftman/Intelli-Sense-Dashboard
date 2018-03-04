@@ -10,9 +10,9 @@ COLORS = {
 	"WHITE":(255,255,255)
 }
 
-speedometerComp = primitive.rings.ActiveRings((x-300,y-100))
+speedometerComp = primitive.rings.ActiveRings(0, 48, (x-300,y-100))
 speedometerComp.scale(1.75)
-speedometerComp.set_speed(12)
+speedometerComp.setValue(1)
 emptyRingSpeedometerComp = primitive.rings.EmptyRing((x-300,y-100))
 emptyRingSpeedometerComp.scale(1.75)
 speedText = primitive.text.Text("22.34",50, COLORS["WHITE"],(x-250,y-70))

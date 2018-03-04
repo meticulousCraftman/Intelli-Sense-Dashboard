@@ -10,7 +10,7 @@ COLORS = {
 BASE_POSITION = (660,110)
 
 emptyRingcoolingComp = primitive.rings.EmptyRing(BASE_POSITION)
-coolingUnitComp = primitive.rings.ActiveRings(BASE_POSITION)
+coolingUnitComp = primitive.rings.ActiveRings(0,100,BASE_POSITION)
 rpmIncButton = primitive.buttons.IncreaseButton((BASE_POSITION[0]+65, BASE_POSITION[1]+80))
 rpmDecButton = primitive.buttons.DecreaseButton((BASE_POSITION[0]-65,BASE_POSITION[1]+80))
 componentName = primitive.text.Text("Cooling Unit",25, COLORS["WHITE"],(BASE_POSITION[0],BASE_POSITION[1]-90))
