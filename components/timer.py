@@ -7,7 +7,7 @@ COLORS = {
 	"WHITE":(255,255,255)
 }
 
-BASE_POSITION = (450,110)
+BASE_POSITION = (530,110)
 
 
 emptyRingTimeComp = primitive.rings.EmptyRing(BASE_POSITION)

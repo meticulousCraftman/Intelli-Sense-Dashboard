@@ -7,7 +7,7 @@ COLORS = {
 	"WHITE":(255,255,255)
 }
 
-BASE_POSITION = (660,110)
+BASE_POSITION = (700,110)
 
 emptyRingcoolingComp = primitive.rings.EmptyRing(BASE_POSITION)
 coolingUnitComp = primitive.rings.ActiveRings(0,100,BASE_POSITION)
