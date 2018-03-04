@@ -6,7 +6,7 @@ class IncreaseButton(pygame.sprite.Sprite):
 	def __init__(self,position=None):
 		super().__init__()
 		self.position = position
-		self.image = pygame.image.load("./images/increase.tif")
+		self.image = pygame.image.load("./images/increase.png")
 		self.rect = self.image.get_rect()
 		if position is not None:
 			self.rect.center = (position[0], position[1])
@@ -23,7 +23,7 @@ class DecreaseButton(pygame.sprite.Sprite):
 	def __init__(self,position=None):
 		super().__init__()
 		self.position = position
-		self.image = pygame.image.load("./images/decrease.tif")
+		self.image = pygame.image.load("./images/decrease.png")
 		self.rect = self.image.get_rect()
 		if position is not None:
 			self.rect.center = (position[0], position[1])
