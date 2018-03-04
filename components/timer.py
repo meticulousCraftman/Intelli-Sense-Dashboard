@@ -3,9 +3,6 @@ import primitive
 
 pygame.init()
 
-x = (800 * 0.5)
-y = (480 * 0.5)
-
 COLORS = {
 	"WHITE":(255,255,255)
 }
