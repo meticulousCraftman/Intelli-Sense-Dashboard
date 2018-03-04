@@ -17,7 +17,7 @@ class IncreaseButton(pygame.sprite.Sprite):
 		newh = math.floor(h*times)
 		self.image = pygame.transform.scale(self.image, (neww, newh))
 
-	def clicked(self,mouse,click,action=None):
+	def clicked(self,action=None):
 		self.image = pygame.image.load("./images/increase.png")
 		self.action = action
 		mouse = pygame.mouse.get_pos()
@@ -46,7 +46,7 @@ class DecreaseButton(pygame.sprite.Sprite):
 		newh = math.floor(h*times)
 		self.image = pygame.transform.scale(self.image, (neww, newh))
 
-	def clicked(self,mouse,click,action=None):
+	def clicked(self,action=None):
 		self.image = pygame.image.load("./images/decrease.png")
 		self.action = action
 		mouse = pygame.mouse.get_pos()
